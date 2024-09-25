@@ -20,7 +20,7 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-      - name: 'Build Inventory Image'
+      - name: 'Build and Push Docker Container'
         run: |
           docker build . --tag ghcr.io/pmachapman/docker-demo:latest
           docker push ghcr.io/pmachapman/docker-demo:latest
