@@ -7,11 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Build and tag image
         run: docker build -t ${{ github.repository }}:master -f Dockerfile .
       - name: 'Login to GitHub Container Registry'
